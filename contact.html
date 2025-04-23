@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .map-section {
+      width: 100%;
+      max-width: 1000px;
+      height: 100%;
+      margin-bottom: 20px;
+    }
+
+    .main-wrapper {
+      display: flex;
+      flex-direction: row;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .image-section {
+      width: 50%;
+      background: url('contus.webp') center/cover no-repeat;
+    }
+
+    .contact-container {
+      width: 50%;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+
+    .contact-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #999;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: #7494ec;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #5d7bda;
+    }
+
+    .success-message {
+      color: green;
+      margin-top: 10px;
+      text-align: center;
+      display: none;
+    }
+
+    .contact-info {
+      margin-top: 30px;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+
+    .contact-info div {
+      margin-bottom: 12px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-info .icon {
+      margin-right: 10px;
+      color: #7494ec;
+      font-size: 1.3rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-wrapper {
+        flex-direction: column;
+      }
+
+      .image-section, .contact-container {
+        width: 100%;
+        height: auto;
+      }
+
+      .image-section {
+        height: 200px;
+      }
+
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="map-section">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3411.7769743560243!2d29.953209025316617!3d31.226907761583934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c4eb818bb859%3A0xe4b28ff2fa922b23!2sSkills%20Dynamix!5e0!3m2!1sar!2seg!4v1745428493767!5m2!1sar!2seg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+  <div class="main-wrapper">
+    <div class="image-section"></div>
+
+    <div class="contact-container">
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="enter name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="enter email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" placeholder="Write your message here..." required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+        <div class="success-message" id="successMessage">Thank you! Your message has been sent.</div>
+      </form>
+
+      <div class="contact-info">
+        <div><span class="icon">📞</span>+1 (234) 567-8901</div>
+        <div><span class="icon">✉️</span>contact@example.com</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (name && email && message) {
+        document.getElementById("successMessage").style.display = "block";
+        this.reset();
+      }
+    });
+  </script>
+</body>
+</html>
